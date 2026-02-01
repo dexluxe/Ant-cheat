@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUB ANALYST - Anti-Cheat Mobile</title>
+    <style>
+        :root {
+            --primary: #00ff41; /* Verde Matrix/Hacker */
+            --bg: #0a0a0a;
+            --card-bg: #1a1a1a;
+            --text: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+        }
+
+        h1 { color: var(--primary); margin: 0; font-size: 2.5rem; text-transform: uppercase; }
+        .subtitle { color: #888; font-size: 0.9rem; margin-top: 10px; }
+
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            border-left: 4px solid var(--primary);
+            padding-left: 15px;
+            margin: 40px 0 20px;
+            color: var(--primary);
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+
+        .card:hover { border-color: var(--primary); box-shadow: 0 0 15px rgba(0, 255, 65, 0.1); }
+
+        /* Estilização dos Vídeos */
+        .video-box {
+            position: relative;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            height: 0;
+            overflow: hidden;
+            background: #000;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .video-box iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .code-block {
+            background: #000;
+            color: var(--primary);
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            border-left: 3px solid #555;
+        }
+
+        .badge {
+            background: var(--primary);
+            color: #000;
+            padding: 2px 8px;
+            font-weight: bold;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            vertical-align: middle;
+        }
+
+        footer { text-align: center; padding: 40px; color: #555; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Detectador Ant Cheats v1.0</h1>
+    <p class="subtitle">Detecção de Trapaças e Análise de Processos Android</p>
+</header>
+
+<div class="container">
+
+    <h2 class="section-title">01. PASSAR TERMUX <span class="badge">NÍVEL: AVANÇADO</span></h2>
+    <div class="card">
+        <p>O Termux é sua principal ferramenta de serviço. Com ele, você detecta passadores de replay root ou qualquer tipo de modificação.</p>
+        
+        <div class="video-box">
+            <iframe src="https://youtube.com/shorts/Co_zylG9BhI?feature=share" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <p>Comandos iniciais para preparar a análise:</p>
+        <div class="code-block">
+           1 pkg install android-tools -y <br>
+           2 adb pair localhost: <br>
+           3 adb connect localhost: ㅤㅤㅤㅤ
+         4 pkg install git php android-tools -y && rm -rf KellerSS-Android && git clone https://github.com/kellerzz/KellerSS-Android && cd KellerSS-Android && php KellerSS.php
+        </div>
+    </div>
+
+    <h2 class="section-title">02. BREVENT & DEPURAÇÃO ADB</h2>
+    <div class="card">
+        <p>Como ativar o Brevent e dar permissões sem precisar de um computador. Essencial para ver apps em segundo plano.</p>
+        
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/ID_DO_VIDEO_BREVENT" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <h2 class="section-title">03. CAÇA AOS CHEATS (ANÁLISE REAL)</h2>
+    <div class="card">
+        <p>Aqui você aprende a identificar pacotes camuflados e permissões suspeitas que scripts de trapaça utilizam.</p>
+        
+        <div class="video-box">
+            <iframe src="https://www.youtube.com/embed/ID_DO_VIDEO_ANALISE" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <h3>Checklist de Investigação:</h3>
+        <ul>
+            <li>Procurar por <strong>"com.lkm"</strong> ou nomes aleatórios.</li>
+            <li>Verificar sobreposição de tela ativa.</li>
+            <li>Análise de logs via <code>logcat</code>.</li>
+        </ul>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2024 Hub de Análise Mobile - O uso indevido dessas informações é de responsabilidade do usuário.
+</footer>
+
+</body>
+</html>
