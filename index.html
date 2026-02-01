@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel do Analista </title>
+    <title>Painel do Analista | Tenysson & Morningstar</title>
     <style>
         :root {
             --primary: #00ff88;
@@ -11,6 +11,7 @@
             --card-bg: #1a1a1a;
             --text: #ffffff;
             --accent: #ff3e3e;
+            --warning: #ffcc00;
         }
 
         body {
@@ -31,30 +32,28 @@
         nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 15px;
             background: #111;
             padding: 1rem;
             position: sticky;
             top: 0;
             z-index: 100;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: var(--text);
             text-decoration: none;
             font-weight: bold;
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            border-radius: 4px;
             transition: 0.3s;
         }
 
-        nav a:hover {
-            color: var(--primary);
-        }
+        nav a:hover { background: var(--primary); color: #000; }
 
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-        }
+        .container { max-width: 1100px; margin: 20px auto; padding: 20px; }
 
         .section {
             background: var(--card-bg);
@@ -64,40 +63,35 @@
             border-left: 5px solid var(--primary);
         }
 
-        h2 {
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        h2 { color: var(--primary); text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        h3 { color: var(--warning); margin-top: 25px; text-transform: uppercase; font-size: 1.1rem; }
+
+        .grid-videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
 
-        /* Área de Vídeo */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* Proporção 16:9 */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
             background: #000;
             border-radius: 8px;
-            margin: 20px 0;
         }
 
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
-        /* Área de Códigos */
         .code-box {
             background: #000;
             color: #00ff00;
             padding: 15px;
             border-radius: 5px;
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Courier New', monospace;
             overflow-x: auto;
             border: 1px solid #333;
+            font-size: 0.9rem;
         }
 
         .warning-box {
@@ -105,103 +99,151 @@
             background: #2a1010;
             padding: 15px;
             margin: 10px 0;
+            font-weight: bold;
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.8rem;
-            color: #666;
+        .rule-card {
+            background: #222;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #333;
         }
 
-        .rules-list {
-            list-style: none;
-            padding: 0;
-        }
-
+        .rules-list { list-style: none; padding: 0; }
         .rules-list li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             padding-left: 25px;
             position: relative;
+            font-size: 0.95rem;
+        }
+        .rules-list li::before { content: '◈'; position: absolute; left: 0; color: var(--primary); }
+
+        .badge {
+            background: var(--accent);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            vertical-align: middle;
         }
 
-        .rules-list li::before {
-            content: '✔️';
-            position: absolute;
-            left: 0;
-        }
+        footer { text-align: center; padding: 40px; color: #666; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>CENTRAL DE ANÁLISE MOBILE</h1>
-    <p>Identificação de Trapaças e Auditoria de Sistema</p>
+    <p>Painel Oficial de Auditoria e Regras de Segurança</p>
 </header>
 
 <nav>
-    <a href="#tutoriais">Tutoriais</a>
-    <a href="#analise">Métodos de Análise</a>
-    <a href="#codigos">Scripts/Códigos</a>
-    <a href="#regras">Regras e Avisos</a>
+    <a href="#tutoriais">VÍDEOS</a>
+    <a href="#codigos">TERMUX</a>
+    <a href="#regras-mobile">REGRAS MOBILE</a>
+    <a href="#regras-emulador">EMULADOR</a>
+    <a href="#wo-exposed">W.O & EXPOSED</a>
 </nav>
 
 <div class="container">
 
     <section id="tutoriais" class="section">
-        <h2>🎥 Tutoriais em Vídeo</h2>
-        <p>Abaixo, os guias passo-a-passo sobre Termux, Brevent e ferramentas de inspeção.</p>
-        
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/Co_zylG9BhI?si=805gV9NRPSx4Jpp2" frameborder="0" allowfullscreen></iframe>
+        <h2>🎥 Tutoriais de Configuração</h2>
+        <div class="grid-videos">
+            <div>
+                <p><strong>Configuração Brevent:</strong></p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/Co_zylG9BhI" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div>
+                <p><strong>Tutorial Secundário:</strong></p>
+                <div class="video-container">
+                    <iframe src="LINK_DO_SEGUNDO_VIDEO_AQUI" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
         </div>
-        <p><i>Nota: O vídeo acima cobre a configuração do brevent.</i></p>
-    </section>
-
-    <section id="analise" class="section">
-        <h2>🔍 Como Analisar o Dispositivo</h2>
-        <p>A análise não se resume a um app. Verifique sempre:</p>
-        <ul>
-            <li><strong>Processos Ativos:</strong> Procure por nomes suspeitos ou permissões de acessibilidade elevadas.</li>
-            <li><strong>Arquivos Ocultos:</strong> Verifique pastas Android/data e diretórios raiz.</li>
-            <li><strong>Logs do Sistema:</strong> Onde ferramentas como o Logcat revelam execuções em segundo plano.</li>
-        </ul>
     </section>
 
     <section id="codigos" class="section">
-        <h2>💻 Biblioteca de Códigos</h2>
-        <p>Codigos termux</p>
+        <h2>💻 Biblioteca de Códigos Termux</h2>
         <div class="code-box">
             pkg install android-tools -y<br>
-            adb pair localhost:<br><br>
-            adb connect localhost:<br>
+            adb pair localhost:[PORTA]<br>
+            adb connect localhost:[PORTA]<br><br>
             pkg install git php android-tools -y && rm -rf KellerSS-Android && git clone https://github.com/kellerzz/KellerSS-Android && cd KellerSS-Android && php KellerSS.php
         </div>
-        <p style="margin-top: 10px;">Copie e cole os comandos conforme sequencia.</p>
+        <p><small>Substitua [PORTA] pelo código do Wireless Debugging.</small></p>
     </section>
 
-    <section id="regras" class="section">
-        <h2>⚠️ Avisos & Regras do Analista</h2>
+    <section id="regras-mobile" class="section">
+        <h2>📱 Regras Gerais Mobile</h2>
+        <div class="warning-box">PROIBIDO: Root e Jailbreak</div>
         
-        <div class="warning-box">
-            <strong>ATENÇÃO:</strong> Leia os Avisos Abaixo.
+        <ul class="rules-list">
+            <li><strong>Apps Proibidos:</strong> Gbox, Esign, Scarlet, Ksign, TrollStore, Troll Folls e MT Manager.</li>
+            <li><strong>Modo Desenvolvedor:</strong> Ativo durante o dispositivo resultará em <span class="badge">W.O</span>.</li>
+            <li><strong>Modificações:</strong> Proibido qualquer alteração na pasta do Free Fire ou arquivos .ipa/.apk modificados.</li>
+            <li><strong>Pós-Partida:</strong> Proibido acessar Atalhos, Arquivos, Google Drive ou ZArchiver.</li>
+            <li><strong>Navegador:</strong> Só será W.O caso o histórico esteja limpo (Suspeita de ocultação).</li>
+            <li><strong>Rastros:</strong> Qualquer rastro suspeito de Janeiro de 2025 em diante é <span class="badge">W.O</span>.</li>
+            <li><strong>Shaders:</strong> Shaders modificada é W.O (Caso OBB seja mais recente, orientar reinstalação).</li>
+            <li><strong>Bateria:</strong> Apps apagados na última/penúltima barra de bateria = W.O sem comprovação.</li>
+        </ul>
+    </section>
+
+    <section id="regras-emulador" class="section">
+        <h2>🖥️ Regras Emulador</h2>
+        <div class="rule-card">
+            <h3>Serviços Obrigatórios:</h3>
+            <ul class="rules-list">
+                <li>Sysman, Sysmon (Tamanho atual: 389), PCASVC, DPS, Diagtrack.</li>
+                <li>Obrigatório presença do processo <strong>CSRSS</strong>.</li>
+                <li>Falta de qualquer serviço listado acima = <span class="badge">W.O</span>.</li>
+            </ul>
+        </div>
+        <ul class="rules-list">
+            <li>Proibido negar AnyDesk ou meios de telagem.</li>
+            <li>Proibido Cheat Engine ou Uso de dados de rede desativado.</li>
+        </ul>
+    </section>
+
+    <section id="wo-exposed" class="section">
+        <h2>⚖️ Vereditos: W.O vs Exposed</h2>
+        
+        <div class="grid-videos">
+            <div class="rule-card">
+                <h3>Aplica-se W.O:</h3>
+                <ul class="rules-list">
+                    <li>Rastro apenas no Histórico do navegador.</li>
+                    <li>Sem replay ou replay cortado (mesmo com < 1 kill).</li>
+                    <li>Shizuko (caso não seja mobilador comprovado).</li>
+                    <li>Modo desenvolvimento ou Atalhos pós-partida (iOS).</li>
+                </ul>
+            </div>
+            <div class="rule-card" style="border-color: var(--accent);">
+                <h3>Aplica-se EXPOSED:</h3>
+                <ul class="rules-list">
+                    <li>Rastros em navegadores recentes (antigos não).</li>
+                    <li>Free Fire modificado ou apps de injeção ativos.</li>
+                    <li>Passar replay (provado).</li>
+                    <li>Lib modificada ou reinicialização forçada do sistema.</li>
+                </ul>
+            </div>
         </div>
 
-        <h3>Lembretes ScreenShare:</h3>
-        <ul class="rules-list">
-            <li>Sempre grave a tela durante o procedimento de análise.</li>
-            <li>QualQuer Duvida consutar Tenysson ou Morningstar
-           </li> Atalhos após partida wo (ios)
-            <li>Mantenha o sigilo dos dados encontrados no dispositivo.</li>
-            <li>O foco deve ser a integridade competitiva.
-            </li>Arquivos após partida wo(Android)
-        </ul>
+        <div class="warning-box" style="text-align: center;">
+            OBS: REPLAY DEVE SER ENVIADO PARA O DIRETOR OU SPV ANTES DE APLICAR O W.O.
+        </div>
     </section>
 
 </div>
 
 <footer>
-    &copy; 2026 Painel do Analista - Desenvolvido por Tenysson And Morningstar
+    &copy; 2026 Painel do Analista - v3.0<br>
+    Desenvolvido por <strong>Tenysson And Morningstar</strong><br>
+    <em>"Lembrando que não é porque não é exposed que não é W.O. Blacklist aplicada."</em>
 </footer>
 
 </body>
