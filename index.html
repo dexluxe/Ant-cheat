@@ -3,68 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANALYST LISBOA - Anti-Cheat Mobile</title>
+    <title>Painel do Analista Pro</title>
     <style>
         :root {
-            --primary: #00ff41; /* Verde Matrix/Hacker */
-            --bg: #0a0a0a;
+            --primary: #00ff88;
+            --bg: #0f0f0f;
             --card-bg: #1a1a1a;
-            --text: #e0e0e0;
+            --text: #ffffff;
+            --accent: #ff3e3e;
         }
 
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg);
             color: var(--text);
             margin: 0;
-            padding: 0;
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
-            padding: 40px 20px;
+            background: linear-gradient(135deg, #1a1a1a, #000);
+            padding: 2rem;
             text-align: center;
             border-bottom: 2px solid var(--primary);
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
         }
 
-        h1 { color: var(--primary); margin: 0; font-size: 2.5rem; text-transform: uppercase; }
-        .subtitle { color: #888; font-size: 0.9rem; margin-top: 10px; }
-
-        .container { max-width: 1000px; margin: auto; padding: 20px; }
-
-        .section-title {
+        nav {
             display: flex;
-            align-items: center;
-            border-left: 4px solid var(--primary);
-            padding-left: 15px;
-            margin: 40px 0 20px;
-            color: var(--primary);
+            justify-content: center;
+            gap: 20px;
+            background: #111;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid #333;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 30px;
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: bold;
             transition: 0.3s;
         }
 
-        .card:hover { border-color: var(--primary); box-shadow: 0 0 15px rgba(0, 255, 65, 0.1); }
+        nav a:hover {
+            color: var(--primary);
+        }
 
-        /* Estilização dos Vídeos */
-        .video-box {
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--primary);
+        }
+
+        h2 {
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Área de Vídeo */
+        .video-container {
             position: relative;
             padding-bottom: 56.25%; /* Proporção 16:9 */
             height: 0;
             overflow: hidden;
             background: #000;
-            border-radius: 5px;
+            border-radius: 8px;
             margin: 20px 0;
         }
 
-        .video-box iframe {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -72,84 +89,117 @@
             height: 100%;
         }
 
-        .code-block {
+        /* Área de Códigos */
+        .code-box {
             background: #000;
-            color: var(--primary);
+            color: #00ff00;
             padding: 15px;
             border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
             overflow-x: auto;
-            font-size: 0.9rem;
-            border-left: 3px solid #555;
+            border: 1px solid #333;
         }
 
-        .badge {
-            background: var(--primary);
-            color: #000;
-            padding: 2px 8px;
-            font-weight: bold;
-            border-radius: 3px;
-            font-size: 0.7rem;
-            vertical-align: middle;
+        .warning-box {
+            border-left: 5px solid var(--accent);
+            background: #2a1010;
+            padding: 15px;
+            margin: 10px 0;
         }
 
-        footer { text-align: center; padding: 40px; color: #555; font-size: 0.8rem; }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .rules-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .rules-list li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .rules-list li::before {
+            content: '✔️';
+            position: absolute;
+            left: 0;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Detectador Ant Cheats v1.0</h1>
-    <p class="subtitle">Detecção de Trapaças e Análise de Processos Android</p>
+    <h1>CENTRAL DE ANÁLISE MOBILE</h1>
+    <p>Identificação de Trapaças e Auditoria de Sistema</p>
 </header>
+
+<nav>
+    <a href="#tutoriais">Tutoriais</a>
+    <a href="#analise">Métodos de Análise</a>
+    <a href="#codigos">Scripts/Códigos</a>
+    <a href="#regras">Regras e Avisos</a>
+</nav>
 
 <div class="container">
 
-    <h2 class="section-title">01. PASSAR TERMUX <span class="badge">TUTO: COMPLETO</span></h2>
-    <div class="card">
-        <p>O Termux é sua principal ferramenta de serviço. Com ele, você detecta passadores de replay root ou qualquer tipo de modificação.</p>
+    <section id="tutoriais" class="section">
+        <h2>🎥 Tutoriais em Vídeo</h2>
+        <p>Abaixo, os guias passo-a-passo sobre Termux, Brevent e ferramentas de inspeção.</p>
         
-        <div class="video-box">
-            <iframe src="https://www.youtube.com/embed/Co_zylG9BhI?si=805gV9NRPSx4Jpp2" frameborder="0" allowfullscreen></iframe>
+        <div class="video-container">
+            <iframe src="LINK_DO_VIDEO_AQUI" frameborder="0" allowfullscreen></iframe>
         </div>
+        <p><i>Nota: O vídeo acima cobre a configuração do ambiente de análise.</i></p>
+    </section>
 
-        <p>Comandos iniciais para preparar a análise:</p>
-        <div class="code-block">
-           1 pkg install android-tools -y <br>
-           2 adb pair localhost: <br>
-           3 adb connect localhost: ㅤㅤㅤㅤ
-         4 pkg install git php android-tools -y && rm -rf KellerSS-Android && git clone https://github.com/kellerzz/KellerSS-Android && cd KellerSS-Android && php KellerSS.php
-        </div>
-    </div>
-
-    <h2 class="section-title">02. BREVENT & DEPURAÇÃO ADB</h2>
-    <div class="card">
-        <p>Como ativar o Brevent e dar permissões sem precisar de um computador. Essencial para ver apps em segundo plano.</p>
-        
-        <div class="video-box">
-            <iframe src="https://www.youtube.com/embed/ID_DO_VIDEO_BREVENT" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </div>
-
-    <h2 class="section-title">03. CAÇA AOS CHEATS (ANÁLISE REAL)</h2>
-    <div class="card">
-        <p>Aqui você aprende a identificar pacotes camuflados e permissões suspeitas que scripts de trapaça utilizam.</p>
-        
-        <div class="video-box">
-            <iframe src="https://www.youtube.com/embed/ID_DO_VIDEO_ANALISE" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <h3>Checklist de Investigação:</h3>
+    <section id="analise" class="section">
+        <h2>🔍 Como Analisar o Dispositivo</h2>
+        <p>A análise não se resume a um app. Verifique sempre:</p>
         <ul>
-            <li>Procurar por <strong>"com.lkm"</strong> ou nomes aleatórios.</li>
-            <li>Verificar sobreposição de tela ativa.</li>
-            <li>Análise de logs via <code>logcat</code>.</li>
+            <li><strong>Processos Ativos:</strong> Procure por nomes suspeitos ou permissões de acessibilidade elevadas.</li>
+            <li><strong>Arquivos Ocultos:</strong> Verifique pastas Android/data e diretórios raiz.</li>
+            <li><strong>Logs do Sistema:</strong> Onde ferramentas como o Logcat revelam execuções em segundo plano.</li>
         </ul>
-    </div>
+    </section>
+
+    <section id="codigos" class="section">
+        <h2>💻 Biblioteca de Códigos</h2>
+        <p>Comandos úteis para rodar no Termux ou via ADB:</p>
+        <div class="code-box">
+            # Comando para listar pacotes suspeitos<br>
+            pm list packages -3 | grep "cheat"<br><br>
+            # Verificar logs em tempo real<br>
+            logcat | grep "GameManager"
+        </div>
+        <p style="margin-top: 10px;">Copie e cole os comandos conforme a necessidade da inspeção.</p>
+    </section>
+
+    <section id="regras" class="section">
+        <h2>⚠️ Avisos & Regras do Analista</h2>
+        
+        <div class="warning-box">
+            <strong>ATENÇÃO:</strong> Nunca altere arquivos do sistema do cliente sem autorização prévia.
+        </div>
+
+        <h3>Regras de Conduta:</h3>
+        <ul class="rules-list">
+            <li>Sempre grave a tela durante o procedimento de análise.</li>
+            <li>Não utilize ferramentas de trapaça para "testar" no celular analisado.</li>
+            <li>Mantenha o sigilo dos dados encontrados no dispositivo.</li>
+            <li>O foco deve ser a integridade competitiva.</li>
+        </ul>
+    </section>
 
 </div>
 
 <footer>
-    &copy; 2026 Análise Mobile - O uso indevido dessas informações é de responsabilidade do usuário.
+    &copy; 2026 Painel do Analista - Desenvolvido por Tenysson And Morningstar
 </footer>
 
 </body>
